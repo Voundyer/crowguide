@@ -1,7 +1,6 @@
 "use client"
 
-import React from "react"
-
+import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -11,15 +10,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { supabase } from "@/lib/supabase"
 
-type AuthFormProps = {
-  onError: React.Dispatch<React.SetStateAction<string | null>>
-  loading: boolean
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const AuthForm: React.FC<AuthFormProps> = ({ onError, loading, setLoading }) => {
+export default function AuthForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState("")
   const [error, setError] = useState("")
 
@@ -159,5 +153,3 @@ const AuthForm: React.FC<AuthFormProps> = ({ onError, loading, setLoading }) => 
     </Card>
   )
 }
-
-export default AuthForm
