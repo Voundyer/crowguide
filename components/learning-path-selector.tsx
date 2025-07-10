@@ -8,6 +8,7 @@ import { BookOpen, Clock, Target, Sparkles } from "lucide-react"
 import { getUserLearningPaths, getTopicsByLearningPath } from "@/lib/ai-generator"
 import { useToast } from "@/hooks/use-toast"
 import { getUserProgress } from "@/lib/database"
+import Image from "next/image"
 
 interface LearningPath {
   id: string
@@ -123,7 +124,13 @@ export default function LearningPathSelector({
       {learningPaths.length === 0 && (
         <Card className="border-dashed border-2 bg-gradient-to-br from-blue-50 to-purple-50">
           <CardContent className="p-8 text-center">
-            <div className="text-6xl mb-4">🐦‍⬛</div>
+            <Image
+              src="/logo.png"
+              alt="Crowguide Logo"
+              width={40}
+              height={40}
+              className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4"
+            />
             <h3 className="text-2xl font-bold mb-3">Welcome to Crowguide!</h3>
             <p className="text-muted-foreground mb-6 text-lg">
               Your AI-powered learning companion is ready to create personalized learning paths just for you.

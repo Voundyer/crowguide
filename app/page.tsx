@@ -12,6 +12,7 @@ import { getUserProgress } from "@/lib/database"
 import AuthForm from "@/components/auth-form"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Toaster } from "@/components/ui/toaster"
+import Image from "next/image"
 
 export default function HomePage() {
   const [user, setUser] = useState<any>(null)
@@ -140,7 +141,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-2xl sm:text-3xl">🐦‍⬛</span>
+              <Image
+                src="/logo.png"
+                alt="Crowguide Logo"
+                width={40}
+                height={40}
+                className="w-8 h-8 sm:w-10 sm:h-10"
+              />
               <div>
                 <h1 className="text-xl sm:text-2xl font-bold">Crowguide</h1>
                 <p className="text-xs sm:text-sm text-muted-foreground">
