@@ -92,21 +92,8 @@ export default function HomePage() {
   }, [])
 
   const handleSignOut = async () => {
-    try {
-      await supabase.auth.signOut()
-    } catch (error: any) {
-      if (
-        error?.name === "AuthSessionMissingError" ||
-        error?.message?.toLowerCase().includes("session missing")
-      ) {
-        // Session already missing, treat as signed out
-        setUser(null)
-        return
-      }
-      // Log or handle other errors
-      console.error("Error signing out:", error)
-    }
-    setUser(null)
+    const { error } = await supabase.auth.signOut()
+    if (error) console.error("Error signing out:", error)
   }
 
   const handleTopicClick = (topic: Topic) => {
