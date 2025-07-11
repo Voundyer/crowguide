@@ -869,8 +869,8 @@ export default function TopicFocus({
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto w-[95vw] sm:w-full">
-        <DialogHeader>
-          <div className="flex justify-between items-start pr-12">
+        <DialogHeader className="sticky top-0 z-20 bg-white/90 backdrop-blur border rounded-2xl shadow-md p-2">
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-start pr-0 sm:pr-12">
             <DialogTitle className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
               <div className="flex items-center gap-2">
                 <span className="text-xl sm:text-2xl">🎯</span>
@@ -879,14 +879,14 @@ export default function TopicFocus({
               {completed && <Badge className="bg-green-500 self-start sm:self-center">Completed</Badge>}
             </DialogTitle>
 
-            <div className="flex flex-col items-end gap-1">
+            <div className="flex flex-row sm:flex-col items-end sm:items-end gap-1 sm:gap-1 mt-2 sm:mt-0">
               <div className="flex items-center gap-2 text-sm">
                 <Clock className="w-4 h-4" />
                 <span className="font-mono font-bold text-primary">{formatTime(pomodoroTime)}</span>
               </div>
               <Badge
                 variant={isRunning ? "default" : "secondary"}
-                className={`text-xs ${isBreak ? "bg-blue-500" : isRunning ? "bg-green-500" : "bg-gray-500"}`}
+                className={`text-xs text-center ${isBreak ? "bg-blue-500" : isRunning ? "bg-green-500" : "bg-gray-500"}`}
               >
                 {getSessionStatus()}
               </Badge>
